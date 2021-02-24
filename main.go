@@ -8,10 +8,15 @@ import (
 
 func CheckError(err error) {
 	if err != nil {
+		// TODO:
+		// Fix error catching
 		//fmt.Println("Error: " , err)
 	}
 }
 
+// TODO:
+// include read addr as argument
+// use localhost by default
 //const addr = "192.168.2.160:9090"
 const addr = "localhost:9090"
 
@@ -20,7 +25,7 @@ func main() {
 	// connect to this socket
 	fmt.Printf("using given address: %v\n", addr)
 	conn, _ := net.Dial("tcp", addr)
-	//defer conn.Close()
+	defer conn.Close()
 	/*fmt.Printf("Current Unix Time: %v\n", time.Now().Unix())
 
 	time.Sleep(100 * time.Millisecond)
@@ -58,7 +63,7 @@ func main() {
 	//fmt.Println(addr , string(buf_rec[0:n]))
 	//CheckError(err)
 	//}
-	conn.Close()
+	//conn.Close()
 }
 
 const letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
